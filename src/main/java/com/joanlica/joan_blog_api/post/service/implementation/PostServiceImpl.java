@@ -1,6 +1,6 @@
 package com.joanlica.joan_blog_api.post.service.implementation;
 
-import com.joanlica.joan_blog_api.core.exception.PostNotFound;
+import com.joanlica.joan_blog_api.core.exception.PostNotFoundException;
 import com.joanlica.joan_blog_api.pages.dto.PageResponse;
 import com.joanlica.joan_blog_api.post.dto.PostRequestDTO;
 import com.joanlica.joan_blog_api.post.dto.PostResponseDTO;
@@ -29,7 +29,7 @@ public class PostServiceImpl implements PostService {
 
     private Post findPostEntityById(Long id) {
         return postRepository.findById(id)
-                .orElseThrow(() -> new PostNotFound("asda"));
+                .orElseThrow(() -> new PostNotFoundException("asda"));
     }
     @Override
     public PostResponseDTO findPostById(Long id) {

@@ -1,6 +1,6 @@
 package com.joanlica.joan_blog_api.core.handler;
 
-import com.joanlica.joan_blog_api.core.exception.PostNotFound;
+import com.joanlica.joan_blog_api.core.exception.PostNotFoundException;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -87,8 +87,8 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     /**
      * 404 - Perfil de usuario no encontrado
      */
-    @ExceptionHandler(PostNotFound.class)
-    public ResponseEntity<Object> handleUserProfileNotFound(PostNotFound ex, HttpServletRequest req) {
+    @ExceptionHandler(PostNotFoundException.class)
+    public ResponseEntity<Object> handleUserProfileNotFound(PostNotFoundException ex, HttpServletRequest req) {
         return errorFactory.entity(HttpStatus.NOT_FOUND, "post_not_found",
                 ex.getMessage(), req.getRequestURI(), Map.of());
     }
