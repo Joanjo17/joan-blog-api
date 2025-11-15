@@ -29,7 +29,7 @@ public class PostServiceImpl implements PostService {
 
     private Post findPostEntityById(Long id) {
         return postRepository.findById(id)
-                .orElseThrow(() -> new PostNotFoundException("asda"));
+                .orElseThrow(() -> new PostNotFoundException("Post no encontrado con id " +id));
     }
     @Override
     public PostResponseDTO findPostById(Long id) {

@@ -1,7 +1,7 @@
 services:
   # Servicio de la Base de Datos MySQL
   mysql:
-    image: 'mysql:8.2.0' # Fijamos la versión
+    image: 'mysql:8.2.0'
     environment:
       - MYSQL_DATABASE=${DB_NAME}
       - MYSQL_ROOT_PASSWORD=${DB_ROOT_PASSWORD}
@@ -33,7 +33,7 @@ services:
       mysql:
         condition: service_healthy
 
-  # Servicio phpMyAdmin (opcional, pero útil para verificar la BBDD)
+  # Servicio phpMyAdmin
   phpmyadmin:
     image: 'phpmyadmin:latest'
     links:
